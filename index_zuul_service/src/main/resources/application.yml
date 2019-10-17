@@ -8,11 +8,26 @@ spring:
 zuul:
   routes:
     api-a:
-      path: /api-codes/**
-      serviceId: INDEX-CODES-SERVICE
+          path: /api-codes/**
+          serviceId: INDEX-CODES-SERVICE
     api-b:
           path: /api-backtest/**
           serviceId: TREND-TRADING-BACKTEST-SERVICE
     api-c:
           path: /api-view/**
           serviceId: TREND-TRADING-BACKTEST-VIEW
+  max:
+      host:
+        connections: 500
+  host:
+      socket-timeout-millis: 60000
+      connect-timeout-millis: 60000
+hystrix:
+  command:
+    default:
+      execution:
+        timeout:
+          enabled: true
+        isolation:
+          thread:
+            timeoutInMilliseconds: 60000
