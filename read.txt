@@ -1,0 +1,4 @@
+trendParentProject:
+    eureka-server:注册中心
+    third-part-index-data-project:第三方数据源
+    index-gather-store-service:本地存储筛选以及清理数据

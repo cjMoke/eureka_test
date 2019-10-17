@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/eureka-server/eureka-server.iml" filepath="$PROJECT_DIR$/eureka-server/eureka-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/index-gather-store-service/index-gather-store-service.iml" filepath="$PROJECT_DIR$/index-gather-store-service/index-gather-store-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/index_codes_service/index_codes_service.iml" filepath="$PROJECT_DIR$/index_codes_service/index_codes_service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/index_data_service/index_data_service.iml" filepath="$PROJECT_DIR$/index_data_service/index_data_service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/index_zuul_service/index_zuul_service.iml" filepath="$PROJECT_DIR$/index_zuul_service/index_zuul_service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/third-part-index-data-project/third-part-index-data-project.iml" filepath="$PROJECT_DIR$/third-part-index-data-project/third-part-index-data-project.iml" />
+      <module fileurl="file://$PROJECT_DIR$/trendParentProject.iml" filepath="$PROJECT_DIR$/trendParentProject.iml" />
+      <module fileurl="file://$PROJECT_DIR$/trend_trading_back_testview/trend_trading_back_testview.iml" filepath="$PROJECT_DIR$/trend_trading_back_testview/trend_trading_back_testview.iml" />
+      <module fileurl="file://$PROJECT_DIR$/trend_trading_backtest_service/trend_trading_backtest_service.iml" filepath="$PROJECT_DIR$/trend_trading_backtest_service/trend_trading_backtest_service.iml" />
+    </modules>
+  </component>
+</project>
