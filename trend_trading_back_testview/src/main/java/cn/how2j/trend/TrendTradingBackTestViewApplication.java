@@ -27,7 +27,7 @@ public class TrendTradingBackTestViewApplication {
             System.err.printf("检查到端口%d 未启用，判断 eureka 服务器没有启动，本服务无法使用，故退出%n", eurekaServerPort );
             System.exit(1);
         }
-        //
+        //1
         if(null!=args && 0!=args.length) {
             for (String arg : args) {
                 if(arg.startsWith("port=")) {
