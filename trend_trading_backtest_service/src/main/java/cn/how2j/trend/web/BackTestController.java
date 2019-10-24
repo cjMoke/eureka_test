@@ -1,5 +1,6 @@
 package cn.how2j.trend.web;
 
+import cn.how2j.trend.pojo.AnnualProfit;
 import cn.how2j.trend.pojo.IndexData;
 import cn.how2j.trend.pojo.Profit;
 import cn.how2j.trend.pojo.Trade;
@@ -19,10 +20,14 @@ import java.util.*;
 public class BackTestController {
     @Autowired BackTestService backTestService;
 
-    @GetMapping("/simulate/{code}/{startDate}/{endDate}")
+    @GetMapping("/simulate/{code}/{ma}/{buyThreshold}/{sellThreshold}/{serviceCharge}/{startDate}/{endDate}")
     @CrossOrigin
     public Map<String,Object> backTest(
             @PathVariable("code") String code
+            ,@PathVariable("ma") int ma
+            ,@PathVariable("buyThreshold") float buyThreshold
+            ,@PathVariable("sellThreshold") float sellThreshold
+            ,@PathVariable("serviceCharge") float serviceCharge
             ,@PathVariable("startDate") String strStartDate
             ,@PathVariable("endDate") String strEndDate
     ) throws Exception {
@@ -33,10 +38,8 @@ public class BackTestController {
 
         allIndexDatas = filterByDateRange(allIndexDatas,strStartDate, strEndDate);
 
-        int ma = 20;
-        float sellRate = 0.95f;
-        float buyRate = 1.05f;
-        float serviceCharge = 0f;
+        float sellRate = sellThreshold;
+        float buyRate = buyThreshold;
         Map<String,?> simulateResult= backTestService.simulate(ma,sellRate, buyRate,serviceCharge, allIndexDatas);
         List<Profit> profits = (List<Profit>) simulateResult.get("profits");
         List<Trade> trades = (List<Trade>) simulateResult.get("trades");
@@ -51,6 +54,8 @@ public class BackTestController {
         int lossCount = (Integer) simulateResult.get("lossCount");
         float avgWinRate = (Float) simulateResult.get("avgWinRate");
         float avgLossRate = (Float) simulateResult.get("avgLossRate");
+
+        List<AnnualProfit> annualProfits = (List<AnnualProfit>) simulateResult.get("annualProfits");
 
         Map<String,Object> result = new HashMap<>();
         result.put("indexDatas", allIndexDatas);
@@ -68,6 +73,8 @@ public class BackTestController {
         result.put("lossCount", lossCount);
         result.put("avgWinRate", avgWinRate);
         result.put("avgLossRate", avgLossRate);
+
+        result.put("annualProfits", annualProfits);
 
         return result;
     }
